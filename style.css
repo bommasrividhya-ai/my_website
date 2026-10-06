@@ -1,119 +1,71 @@
-/* ==========================================================================
-   1. CSS Custom Properties & Core Setup
-   ========================================================================== */
 :root {
   --color-bg: #0b0f19;
-  --color-card-bg: rgba(17, 24, 39, 0.6);
-  --color-card-border: rgba(31, 41, 55, 0.8);
   --color-accent-cyan: #00f2fe;
-  --color-accent-purple: #7000ff;
-  --color-text-main: #f3f4f6;
-  --color-text-muted: #9ca3af;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--color-bg);
 }
-
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-cyan);
 }
 
-/* Selection Glow */
-::selection {
-  background: rgba(0, 242, 254, 0.25);
-  color: var(--color-accent-cyan);
-}
-
-/* ==========================================================================
-   2. Glassmorphism & Card Styles
-   ========================================================================== */
-.glass-panel {
-  background: var(--color-card-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-card-border);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
+/* Glassmorphism Hover Effects */
 .glass-panel-hover {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.3s ease,
               box-shadow 0.3s ease;
 }
-
 .glass-panel-hover:hover {
   transform: translateY(-4px);
   border-color: rgba(0, 242, 254, 0.4);
   box-shadow: 0 12px 40px -10px rgba(0, 242, 254, 0.15);
 }
 
-/* ==========================================================================
-   3. Custom Animations & Keyframes
-   ========================================================================== */
-
-/* Glowing Gradient Text Pulse */
+/* Glowing Animations */
 @keyframes textGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.3));
-  }
-  50% {
-    filter: drop-shadow(0 0 25px rgba(112, 0, 255, 0.5));
-  }
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.3)); }
+  50% { filter: drop-shadow(0 0 25px rgba(112, 0, 255, 0.5)); }
 }
-
 .animate-glow {
   animation: textGlow 6s ease-in-out infinite;
 }
 
-/* Floating Animation for Visual Accents */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-
-/* Pulse Ring Effect for Status Dots */
-@keyframes pulseRing {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(0, 242, 254, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 242, 254, 0);
-  }
-}
-
-.pulse-ring {
-  animation: pulseRing 2s infinite;
-}
-
-/* ==========================================================================
-   4. Progress Bars & Dynamic Skill Styling
-   ========================================================================== */
+/* Progress Bar Animation Styling */
 .skill-progress-bar {
   transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
-  box-shadow: 0 0 10px rgba(0, 242, 2
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Quantum Button Effect */
+.btn-quantum {
+  position: relative;
+  overflow: hidden;
+}
+.btn-quantum::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+.btn-quantum:hover::before {
+  left: 100%;
+}
+
+/* Smooth filtering transitions for project cards */
+.project-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

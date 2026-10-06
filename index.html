@@ -11,115 +11,15 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Google Fonts: Inter & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --color-bg: #0b0f19;
-      --color-card-bg: rgba(15, 23, 42, 0.65);
-      --color-card-border: rgba(30, 41, 59, 0.8);
-      --color-accent-cyan: #00f2fe;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--color-bg);
-      color: #e2e8f0;
-    }
-
-    .font-mono {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Custom Smooth Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--color-bg);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--color-accent-cyan);
-    }
-
-    /* Glassmorphism Styles */
-    .glass-panel {
-      background: var(--color-card-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--color-card-border);
-    }
-
-    .glass-panel-hover {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                  border-color 0.3s ease,
-                  box-shadow 0.3s ease;
-    }
-    .glass-panel-hover:hover {
-      transform: translateY(-5px);
-      border-color: rgba(0, 242, 254, 0.4);
-      box-shadow: 0 12px 35px -10px rgba(0, 242, 254, 0.2);
-    }
-
-    /* Glowing Animated Text */
-    @keyframes textGlow {
-      0%, 100% { filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.4)); }
-      50% { filter: drop-shadow(0 0 22px rgba(112, 0, 255, 0.6)); }
-    }
-    .animate-glow {
-      animation: textGlow 5s ease-in-out infinite;
-    }
-
-    /* Animated Skill Bar */
-    .skill-progress-bar {
-      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-      background: linear-gradient(90deg, #00f2fe 0%, #3b82f6 100%);
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
-    }
-
-    /* Quantum Button Shimmer */
-    .btn-quantum {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-quantum::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-      transition: left 0.5s ease;
-    }
-    .btn-quantum:hover::before {
-      left: 100%;
-    }
-
-    /* Filtering Transitions */
-    .project-card {
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      opacity: 1;
-      transform: scale(1);
-    }
-    .project-card.hidden-card {
-      display: none !important;
-      opacity: 0;
-      transform: scale(0.95);
-    }
-  </style>
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="relative overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-400">
+<body class="bg-[#0b0f19] text-gray-200 font-sans antialiased relative overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-400">
 
+  <!-- Interactive Quantum Canvas Background -->
   <canvas id="quantum-bg" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-40"></canvas>
 
+  <!-- NAVIGATION HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800/60 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2.5 group">
@@ -147,6 +47,7 @@
 
   <main class="pt-24">
 
+    <!-- HERO SECTION -->
     <section class="max-w-7xl mx-auto px-6 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-7 space-y-6">
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/50 text-cyan-400 text-xs font-semibold tracking-wide uppercase">
@@ -180,7 +81,7 @@
 
       <!-- Quick Stats Card -->
       <div class="lg:col-span-5">
-        <div class="p-6 sm:p-8 rounded-2xl glass-panel glass-panel-hover shadow-2xl relative">
+        <div class="p-6 sm:p-8 rounded-2xl bg-gray-900/60 border border-gray-800/80 backdrop-blur-xl shadow-2xl relative">
           <div class="flex items-center justify-between pb-6 border-b border-gray-800/80">
             <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Quick Stats</h3>
             <span class="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
@@ -214,6 +115,7 @@
       </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="py-20 border-t border-gray-800/60">
       <div class="max-w-7xl mx-auto px-6">
         <div class="max-w-3xl mb-12">
@@ -227,32 +129,32 @@
         </div>
 
         <!-- Journey Timeline -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
-          <div class="p-5 rounded-xl glass-panel glass-panel-hover">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div class="p-5 rounded-xl bg-gray-900/40 border border-gray-800/60 glass-panel-hover">
             <span class="text-xs text-cyan-400 font-mono font-semibold">2026</span>
             <h4 class="text-sm font-bold text-white mt-1">Year 1</h4>
             <p class="text-xs text-gray-400 mt-2">Joined Alliance University for B.Tech in Quantum Computing.</p>
           </div>
 
-          <div class="p-5 rounded-xl glass-panel glass-panel-hover">
+          <div class="p-5 rounded-xl bg-gray-900/40 border border-gray-800/60 glass-panel-hover">
             <span class="text-xs text-cyan-400 font-mono font-semibold">2026</span>
             <h4 class="text-sm font-bold text-white mt-1">Now</h4>
             <p class="text-xs text-gray-400 mt-2">Studying linear algebra, quantum states, and Qiskit basics.</p>
           </div>
 
-          <div class="p-5 rounded-xl glass-panel opacity-80 glass-panel-hover">
+          <div class="p-5 rounded-xl bg-gray-900/40 border border-gray-800/60 opacity-80 glass-panel-hover">
             <span class="text-xs text-gray-500 font-mono font-semibold">2027</span>
             <h4 class="text-sm font-bold text-white mt-1">Coming</h4>
             <p class="text-xs text-gray-400 mt-2">First quantum circuit algorithm projects and research.</p>
           </div>
 
-          <div class="p-5 rounded-xl glass-panel opacity-60 glass-panel-hover">
+          <div class="p-5 rounded-xl bg-gray-900/40 border border-gray-800/60 opacity-60 glass-panel-hover">
             <span class="text-xs text-gray-500 font-mono font-semibold">2028</span>
             <h4 class="text-sm font-bold text-white mt-1">Goal</h4>
             <p class="text-xs text-gray-400 mt-2">Internships in quantum software and research labs.</p>
           </div>
 
-          <div class="p-5 rounded-xl glass-panel opacity-40 glass-panel-hover">
+          <div class="p-5 rounded-xl bg-gray-900/40 border border-gray-800/60 opacity-40 glass-panel-hover">
             <span class="text-xs text-gray-500 font-mono font-semibold">2029</span>
             <h4 class="text-sm font-bold text-white mt-1">Vision</h4>
             <p class="text-xs text-gray-400 mt-2">Graduate with expertise in quantum algorithm implementation.</p>
@@ -261,6 +163,7 @@
       </div>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="py-20 border-t border-gray-800/60 bg-gray-950/40">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -269,51 +172,48 @@
             <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Problems I'm <span class="text-cyan-400">solving</span></h2>
           </div>
           <!-- Filter Buttons -->
-          <div class="flex items-center gap-2 mt-6 md:mt-0" id="project-filters">
-            <button data-filter="all" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20 transition-all cursor-pointer">All</button>
-            <button data-filter="quantum" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-gray-900 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-700 transition-all cursor-pointer">Quantum</button>
-            <button data-filter="python" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-gray-900 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-700 transition-all cursor-pointer">Python</button>
+          <div class="flex items-center gap-2 mt-4 md:mt-0" id="project-filters">
+            <button data-filter="all" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-cyan-500 text-slate-950 transition-all cursor-pointer">All</button>
+            <button data-filter="quantum" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:text-white transition-all cursor-pointer">Quantum</button>
+            <button data-filter="python" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:text-white transition-all cursor-pointer">Python</button>
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="projects-grid">
           <!-- Card 1 -->
-          <div class="project-card p-6 rounded-2xl glass-panel glass-panel-hover group cursor-pointer" data-category="quantum">
+          <div class="project-card p-6 rounded-2xl bg-gray-900/60 border border-gray-800/80 glass-panel-hover group cursor-pointer" data-category="quantum">
             <div class="flex justify-between items-start mb-4">
-              <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono text-cyan-400 font-medium uppercase tracking-wider">Quantum</span>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Qiskit Circuit Simulator</h3>
               <span class="text-xs font-mono text-gray-500">2026</span>
             </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">Qiskit Circuit Simulator</h3>
-            <p class="text-xs text-gray-400 leading-relaxed mb-6">Simulation of simple Bell State entanglement and state vector visualization using IBM Qiskit framework.</p>
-            <div class="flex items-center justify-between text-xs text-cyan-400 font-medium pt-4 border-t border-gray-800/80">
+            <p class="text-xs text-gray-400 leading-relaxed mb-6">Simulation of simple Bell State entanglement and state vector visualization using IBM Qiskit.</p>
+            <div class="flex items-center justify-between text-xs text-cyan-400 font-medium">
               <span>View Details</span>
               <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="project-card p-6 rounded-2xl glass-panel glass-panel-hover group cursor-pointer" data-category="python">
+          <div class="project-card p-6 rounded-2xl bg-gray-900/60 border border-gray-800/80 glass-panel-hover group cursor-pointer" data-category="python">
             <div class="flex justify-between items-start mb-4">
-              <span class="px-2.5 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-[10px] font-mono text-purple-400 font-medium uppercase tracking-wider">Python</span>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Bloch Sphere Visualizer</h3>
               <span class="text-xs font-mono text-gray-500">2026</span>
             </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">Bloch Sphere Visualizer</h3>
-            <p class="text-xs text-gray-400 leading-relaxed mb-6">Interactive 3D visualization of single-qubit rotations and state vector coordinates using Python & Matplotlib.</p>
-            <div class="flex items-center justify-between text-xs text-cyan-400 font-medium pt-4 border-t border-gray-800/80">
+            <p class="text-xs text-gray-400 leading-relaxed mb-6">Interactive 3D visualization of single-qubit rotations using Python and Matplotlib.</p>
+            <div class="flex items-center justify-between text-xs text-cyan-400 font-medium">
               <span>View Details</span>
               <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="project-card p-6 rounded-2xl glass-panel glass-panel-hover group cursor-pointer" data-category="quantum">
+          <div class="project-card p-6 rounded-2xl bg-gray-900/60 border border-gray-800/80 glass-panel-hover group cursor-pointer" data-category="quantum">
             <div class="flex justify-between items-start mb-4">
-              <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono text-cyan-400 font-medium uppercase tracking-wider">Quantum</span>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Quantum Gate Explorer</h3>
               <span class="text-xs font-mono text-gray-500">2026</span>
             </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">Quantum Gate Explorer</h3>
-            <p class="text-xs text-gray-400 leading-relaxed mb-6">Mathematical breakdown and matrix transformation matrix of Hadamard, Pauli-X/Y/Z, and CNOT gates.</p>
-            <div class="flex items-center justify-between text-xs text-cyan-400 font-medium pt-4 border-t border-gray-800/80">
+            <p class="text-xs text-gray-400 leading-relaxed mb-6">Mathematical breakdown of Hadamard, Pauli-X/Y/Z, and CNOT matrix transformations.</p>
+            <div class="flex items-center justify-between text-xs text-cyan-400 font-medium">
               <span>View Details</span>
               <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
             </div>
@@ -322,6 +222,7 @@
       </div>
     </section>
 
+    <!-- SKILLS SECTION -->
     <section id="skills" class="py-20 border-t border-gray-800/60">
       <div class="max-w-7xl mx-auto px-6">
         <div class="mb-12">
@@ -331,7 +232,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Quantum Skills -->
-          <div class="p-6 rounded-2xl glass-panel">
+          <div class="p-6 rounded-2xl bg-gray-900/40 border border-gray-800/80">
             <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
               <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i> Quantum Fundamentals
             </h3>
@@ -358,7 +259,7 @@
           </div>
 
           <!-- Programming Skills -->
-          <div class="p-6 rounded-2xl glass-panel">
+          <div class="p-6 rounded-2xl bg-gray-900/40 border border-gray-800/80">
             <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
               <i data-lucide="code" class="w-4 h-4 text-cyan-400"></i> Programming
             </h3>
@@ -385,7 +286,7 @@
           </div>
 
           <!-- Tools -->
-          <div class="p-6 rounded-2xl glass-panel">
+          <div class="p-6 rounded-2xl bg-gray-900/40 border border-gray-800/80">
             <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
               <i data-lucide="wrench" class="w-4 h-4 text-cyan-400"></i> Tools
             </h3>
@@ -414,6 +315,7 @@
       </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="py-20 border-t border-gray-800/60 bg-gray-950/60">
       <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-12">
@@ -429,7 +331,7 @@
           </div>
           <textarea rows="4" placeholder="Your Message..." required class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-800 text-white text-sm focus:outline-none focus:border-cyan-500 transition-colors"></textarea>
           
-          <button type="submit" class="btn-quantum w-full py-3 rounded-lg bg-cyan-500 text-slate-950 font-semibold text-sm hover:bg-cyan-400 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+          <button type="submit" class="btn-quantum w-full py-3 rounded-lg bg-cyan-500 text-slate-950 font-semibold text-sm hover:bg-cyan-400 transition-colors flex items-center justify-center gap-2">
             <span>Send Message</span>
             <i data-lucide="send" class="w-4 h-4"></i>
           </button>
@@ -439,140 +341,12 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="border-t border-gray-800/60 py-8 text-center text-xs text-gray-500">
     <p>© 2026 Sri Vidhya · Quantum Computing Student</p>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // 1. Initialize Icons
-      if (window.lucide) {
-        lucide.createIcons();
-      }
-
-      // 2. Quantum Particle Canvas Background Animation
-      const canvas = document.getElementById("quantum-bg");
-      if (canvas) {
-        const ctx = canvas.getContext("2d");
-        let width = (canvas.width = window.innerWidth);
-        let height = (canvas.height = window.innerHeight);
-
-        window.addEventListener("resize", () => {
-          width = canvas.width = window.innerWidth;
-          height = canvas.height = window.innerHeight;
-        });
-
-        const particles = Array.from({ length: 45 }, () => ({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          radius: Math.random() * 2 + 0.5,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          alpha: Math.random() * 0.5 + 0.2
-        }));
-
-        function animateCanvas() {
-          ctx.clearRect(0, 0, width, height);
-          particles.forEach((p, i) => {
-            p.x += p.vx;
-            p.y += p.vy;
-            if (p.x < 0 || p.x > width) p.vx *= -1;
-            if (p.y < 0 || p.y > height) p.vy *= -1;
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0, 242, 254, ${p.alpha})`;
-            ctx.fill();
-
-            for (let j = i + 1; j < particles.length; j++) {
-              const p2 = particles[j];
-              const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-              if (dist < 120) {
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.strokeStyle = `rgba(0, 242, 254, ${1 - dist / 120})`;
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-              }
-            }
-          });
-          requestAnimationFrame(animateCanvas);
-        }
-        animateCanvas();
-      }
-
-      // 3. Animated Skill Progress Bars on Intersection Observer Scroll
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".skill-progress-bar").forEach((bar) => {
-              const targetWidth = bar.getAttribute("data-width");
-              if (targetWidth) {
-                bar.style.width = targetWidth;
-              }
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-
-      const skillsSection = document.getElementById("skills");
-      if (skillsSection) observer.observe(skillsSection);
-
-      // 4. FIXED PROJECT FILTERING LOGIC
-      const filterBtns = document.querySelectorAll("#project-filters .filter-btn");
-      const projectCards = document.querySelectorAll(".project-card");
-
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const selectedFilter = btn.getAttribute("data-filter");
-
-          // Reset styles for all buttons
-          filterBtns.forEach((b) => {
-            b.classList.remove("bg-cyan-500", "text-slate-950", "shadow-md", "shadow-cyan-500/20");
-            b.classList.add("bg-gray-900", "border", "border-gray-800", "text-gray-400");
-          });
-
-          // Set active styles for clicked button
-          btn.classList.remove("bg-gray-900", "border", "border-gray-800", "text-gray-400");
-          btn.classList.add("bg-cyan-500", "text-slate-950", "shadow-md", "shadow-cyan-500/20");
-
-          // Filter card visibility
-          projectCards.forEach((card) => {
-            const cardCategory = card.getAttribute("data-category");
-
-            if (selectedFilter === "all" || cardCategory === selectedFilter) {
-              card.classList.remove("hidden-card");
-            } else {
-              card.classList.add("hidden-card");
-            }
-          });
-        });
-      });
-
-      // 5. Contact Form Feedback Logic
-      const contactForm = document.getElementById("contact-form");
-      if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const submitBtn = contactForm.querySelector("button[type='submit']");
-          const originalContent = submitBtn.innerHTML;
-
-          submitBtn.innerHTML = `<span>Message Sent!</span><i data-lucide="check" class="w-4 h-4"></i>`;
-          submitBtn.classList.replace("bg-cyan-500", "bg-emerald-500");
-          if (window.lucide) lucide.createIcons();
-
-          contactForm.reset();
-
-          setTimeout(() => {
-            submitBtn.innerHTML = originalContent;
-            submitBtn.classList.replace("bg-emerald-500", "bg-cyan-500");
-            if (window.lucide) lucide.createIcons();
-          }, 3000);
-        });
-      }
-    });
-  </script>
+  <!-- External Script -->
+  <script src="script.js"></script>
 </body>
 </html>
